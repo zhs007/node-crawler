@@ -1,6 +1,6 @@
 {
   "name": "crawlercore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "crawler with nodejs",
   "main": "index.js",
   "scripts": {
@@ -14,10 +14,7 @@
     "crawler"
   ],
   "author": "zhs007",
-  "license": [
-    "BSD",
-    "Apache 2.0"
-  ],
+  "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/zhs007/node-crawler/issues"
   },

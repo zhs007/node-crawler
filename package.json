@@ -1,5 +1,5 @@
 {
-  "name": "node-crawler",
+  "name": "crawlercore",
   "version": "1.0.0",
   "description": "crawler with nodejs",
   "main": "index.js",

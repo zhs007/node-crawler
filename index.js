@@ -19,10 +19,13 @@ let { CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE } = require('./lib/basedef');
 let CrawlerMgr = require('./lib/crawlermgr');
 
 // options
+//      - optionstype: string union
 //      - uri: string or string array
 //      - force_encoding: default utf8
 //      - timeout: request timeout
 //      - async func_analysis(crawler)
+//      - func_getcache()
+//      - func_setcache(cache)
 //      - crawler_type: CRAWLER.REQUEST ...
 //      - dataanalysis_type: DATAANALYSIS.CHEERIO ...
 //      - storage_type: STORAGE.CSV ...

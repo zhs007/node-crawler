@@ -12,7 +12,10 @@ require('./lib/storage_json');
 require('./lib/storage_sql');
 require('./lib/storage_mysql');
 
-let {CRAWLER, DATAANALYSIS, STORAGE} = require('./lib/basedef');
+require('./lib/crawlercache');
+require('./lib/crawlercache_redis');
+
+let { CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE } = require('./lib/basedef');
 let CrawlerMgr = require('./lib/crawlermgr');
 
 // options
@@ -41,8 +44,13 @@ let CrawlerMgr = require('./lib/crawlermgr');
 //
 // exports.startCrawler = startCrawler;
 
+const { createMysql2, createRedis } = require('./lib/util');
 
 exports.CRAWLER = CRAWLER;
 exports.DATAANALYSIS = DATAANALYSIS;
 exports.STORAGE = STORAGE;
+exports.CRAWLERCACHE = CRAWLERCACHE;
 exports.CrawlerMgr = CrawlerMgr;
+
+exports.createMysql2 = createMysql2;
+exports.createRedis = createRedis;

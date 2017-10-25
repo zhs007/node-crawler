@@ -17,3 +17,9 @@ npm i crawlercore --save
 ```
 
 即可安装，具体使用方法，见 ```https://github.com/zhs007/crawler-js``` 项目。
+
+---
+更新日志
+
+* 1.0.x - 正式发布，基本功能正常
+* 1.1.x - 增加redis缓存集中管理缓存，初步支持分布式，支持各种重启多开

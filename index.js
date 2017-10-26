@@ -47,7 +47,10 @@ let CrawlerMgr = require('./lib/crawlermgr');
 //
 // exports.startCrawler = startCrawler;
 
-const { createMysql2, createRedis } = require('./lib/util');
+// const { createMysql2, createRedis } = require('./lib/util');
+
+let RedisMgr = require('./lib/redismgr');
+let MysqlMgr = require('./lib/mysqlmgr');
 
 exports.CRAWLER = CRAWLER;
 exports.DATAANALYSIS = DATAANALYSIS;
@@ -55,5 +58,5 @@ exports.STORAGE = STORAGE;
 exports.CRAWLERCACHE = CRAWLERCACHE;
 exports.CrawlerMgr = CrawlerMgr;
 
-exports.createMysql2 = createMysql2;
-exports.createRedis = createRedis;
+exports.RedisMgr = RedisMgr;
+exports.MysqlMgr = MysqlMgr;

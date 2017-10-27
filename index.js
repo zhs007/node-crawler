@@ -15,11 +15,13 @@ require('./lib/storage_mysql');
 require('./lib/crawlercache');
 require('./lib/crawlercache_redis');
 
-let { CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE } = require('./lib/basedef');
+require('./lib/crawleroptions_default');
+
+let { CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, CRAWLEROPTIONS } = require('./lib/basedef');
 let CrawlerMgr = require('./lib/crawlermgr');
 
 // options
-//      - optionstype: string union
+//      - typename: string union
 //      - uri: string or string array
 //      - force_encoding: default utf8
 //      - timeout: request timeout
@@ -35,28 +37,16 @@ let CrawlerMgr = require('./lib/crawlermgr');
 //          - storage_cfg for sql {filename, func_procline(lineobj)}
 //          - storage_cfg for mysql {func_procline(lineobj), mysqlcfg: {host, user, password, database}}
 
-//require('./lib/headlesschrome');
-
-// // options
-// //      - uri: string
-// //      - auto_encoding: bool
-//
-// async function startCrawler(crawlertype, datype, options) {
-//     return CrawlerMgr.singleton.startCrawler(crawlertype, datype, options);
-// }
-//
-// exports.startCrawler = startCrawler;
-
-// const { createMysql2, createRedis } = require('./lib/util');
-
-let RedisMgr = require('./lib/redismgr');
-let MysqlMgr = require('./lib/mysqlmgr');
-
 exports.CRAWLER = CRAWLER;
 exports.DATAANALYSIS = DATAANALYSIS;
 exports.STORAGE = STORAGE;
 exports.CRAWLERCACHE = CRAWLERCACHE;
+exports.CRAWLEROPTIONS = CRAWLEROPTIONS;
+
 exports.CrawlerMgr = CrawlerMgr;
+
+let RedisMgr = require('./lib/redismgr');
+let MysqlMgr = require('./lib/mysqlmgr');
 
 exports.RedisMgr = RedisMgr;
 exports.MysqlMgr = MysqlMgr;

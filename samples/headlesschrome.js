@@ -7,7 +7,7 @@ const { getVal_CDPCallFrame } = require('../lib/util');
 
 var isend = false;
 
-const JSSRC = fs.readFileSync('samples/h5t.js', 'utf-8');
+// const JSSRC = fs.readFileSync('samples/h5t.js', 'utf-8');
 
 function launchChrome() {
     return ChromeLauncher.launch({
@@ -43,6 +43,10 @@ launchChrome().then(launcher => {
 
                 let obj = await getVal_CDPCallFrame('h', params.callFrames, Runtime);
                 console.log('getVal_CDPCallFrame ' + JSON.stringify(obj));
+
+                Debugger.resume();
+                protocol.close();
+                launcher.kill();
 
                 // for (let i = 0; i < params.callFrames.length; ++i) {
                 //     let cf = params.callFrames[0];
@@ -155,4 +159,3 @@ launchChrome().then(launcher => {
         console.log("got script ID", params.scriptId);
     });
 });
-

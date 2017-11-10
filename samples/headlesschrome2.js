@@ -99,7 +99,7 @@ CrawlerMgr.singleton.processDelayTime = 0.3;
 
 CrawlerMgr.singleton.init().then(() => {
     startHeadlessChrome2Crawler('sh600000');
-    startHeadlessChrome2Crawler('sh600001');
+    startHeadlessChrome2Crawler('sh600004');
 
     CrawlerMgr.singleton.start(true, true, async () => {
     }, true);

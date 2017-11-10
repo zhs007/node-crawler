@@ -1,8 +1,18 @@
 "use strict";
 
-let { CrawlerMgr, CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, getVal_CDPCallFrame } = require('../index');
+let { CrawlerMgr, CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, getVal_CDPCallFrame, HeadlessChromeMgr } = require('../index');
+let util = require('util');
 
 const OPTIONS_TYPENAME = 'headlesschrome2';
+
+const HEADLESSCHROME_NAME = 'headlesschrome2';
+const HEADLESSCHROME_OPTION = {
+    port: 9222,
+    autoSelectChrome: true,
+    additionalFlags: ['--window-size=1136,640', '--disable-gpu', '--headless']
+};
+
+HeadlessChromeMgr.singleton.addHeadlessChrome(HEADLESSCHROME_NAME, HEADLESSCHROME_OPTION);
 
 // 分析数据
 async function func_analysis(crawler) {
@@ -15,7 +25,7 @@ async function func_analysis(crawler) {
 
         Debugger.resume();
         crawler.client.close();
-        crawler.launcher.kill();
+        // crawler.launcher.kill();
     });
 
     Debugger.scriptParsed((params) => {
@@ -64,11 +74,14 @@ let headlesschrome2Options = {
     dataanalysis_type: DATAANALYSIS.NULL,
 
     // 分析数据
-    func_analysis: func_analysis
+    func_analysis: func_analysis,
+
+    headlesschromename: HEADLESSCHROME_NAME
 };
 
-function startHeadlessChrome2Crawler() {
+function startHeadlessChrome2Crawler(code) {
     let op = Object.assign({}, headlesschrome2Options);
+    op.uri = util.format('http://quotes.sina.cn/hs/company/quotes/view/%s/?from=wap', code);
     CrawlerMgr.singleton.addCrawler(op);
 }
 
@@ -85,7 +98,8 @@ CrawlerMgr.singleton.processCrawlerNums = 8;
 CrawlerMgr.singleton.processDelayTime = 0.3;
 
 CrawlerMgr.singleton.init().then(() => {
-    startHeadlessChrome2Crawler();
+    startHeadlessChrome2Crawler('sh600000');
+    startHeadlessChrome2Crawler('sh600001');
 
     CrawlerMgr.singleton.start(true, true, async () => {
     }, true);

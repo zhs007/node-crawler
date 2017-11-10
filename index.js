@@ -36,10 +36,7 @@ let CrawlerMgr = require('./lib/crawlermgr');
 //          - storage_cfg for json {filename}
 //          - storage_cfg for sql {filename, func_procline(lineobj)}
 //          - storage_cfg for mysql {func_procline(lineobj), mysqlcfg: {host, user, password, database}}
-//      - headlesschromeoptions
-//          - port: default 9222
-//          - autoSelectChrome: default true
-//          - additionalFlags: default ['--window-size=1136,640', '--disable-gpu', '--headless']
+//      - headlesschromename: headlesschrome name from HeadlessChromeMgr
 
 exports.CRAWLER = CRAWLER;
 exports.DATAANALYSIS = DATAANALYSIS;
@@ -58,3 +55,7 @@ exports.MysqlMgr = MysqlMgr;
 let { getVal_CDPCallFrame } = require('./lib/util');
 
 exports.getVal_CDPCallFrame = getVal_CDPCallFrame;
+
+let { HeadlessChromeMgr } = require('./lib/headlesschromemgr');
+
+exports.HeadlessChromeMgr = HeadlessChromeMgr;

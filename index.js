@@ -26,6 +26,7 @@ let CrawlerMgr = require('./lib/crawlermgr');
 //      - force_encoding: default utf8
 //      - timeout: request timeout
 //      - async func_analysis(crawler)
+//      - async func_onfinish(crawler)
 //      - func_getcache()
 //      - func_setcache(cache)
 //      - crawler_type: CRAWLER.REQUEST ...

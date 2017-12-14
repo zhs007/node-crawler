@@ -5,6 +5,8 @@ require('./lib/crawler_headlesschrome');
 
 require('./lib/da_cheerio');
 require('./lib/da_js');
+require('./lib/da_json');
+require('./lib/da_xml');
 
 require('./lib/storage');
 require('./lib/storage_csv');

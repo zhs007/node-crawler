@@ -1,12 +1,14 @@
 "use strict";
 
-let { CrawlerMgr, CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, getVal_CDPCallFrame, HeadlessChromeMgr } = require('../index');
+let { CrawlerMgr, CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, getVal_CDPCallFrame, HeadlessChromeMgr, toXMLString } = require('../index');
 let util = require('util');
 
 const OPTIONS_TYPENAME = 'xml';
 
 // 分析数据
 async function func_analysis(crawler) {
+    console.log(toXMLString(crawler.da.root));
+
     return crawler;
 }
 

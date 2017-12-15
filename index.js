@@ -19,7 +19,7 @@ require('./lib/crawlercache_redis');
 
 require('./lib/crawleroptions_default');
 
-let { CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, CRAWLEROPTIONS } = require('./lib/basedef');
+let { CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, CRAWLEROPTIONS, HEADLESSCHROMETYPE } = require('./lib/basedef');
 let CrawlerMgr = require('./lib/crawlermgr');
 
 // options
@@ -40,12 +40,14 @@ let CrawlerMgr = require('./lib/crawlermgr');
 //          - storage_cfg for sql {filename, func_procline(lineobj)}
 //          - storage_cfg for mysql {func_procline(lineobj), mysqlcfg: {host, user, password, database}}
 //      - headlesschromename: headlesschrome name from HeadlessChromeMgr
+//      - headlesschrometype: HEADLESSCHROMETYPE
 
 exports.CRAWLER = CRAWLER;
 exports.DATAANALYSIS = DATAANALYSIS;
 exports.STORAGE = STORAGE;
 exports.CRAWLERCACHE = CRAWLERCACHE;
 exports.CRAWLEROPTIONS = CRAWLEROPTIONS;
+exports.HEADLESSCHROMETYPE = HEADLESSCHROMETYPE;
 
 exports.CrawlerMgr = CrawlerMgr;
 

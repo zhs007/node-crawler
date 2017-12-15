@@ -57,14 +57,14 @@ let MysqlMgr = require('./lib/mysqlmgr');
 exports.RedisMgr = RedisMgr;
 exports.MysqlMgr = MysqlMgr;
 
-let { getVal_CDPCallFrame, getDocumentText_CDP, getDocumentHtml_CDP, toXMLString, parseXML, addChildXML } = require('./lib/util');
+let { getVal_CDPCallFrame, getDocumentText_CDP, getDocumentHtml_CDP, toXMLString, parseXML, addChildNodeXML } = require('./lib/util');
 
 exports.getVal_CDPCallFrame = getVal_CDPCallFrame;
 exports.getDocumentText_CDP = getDocumentText_CDP;
 exports.getDocumentHtml_CDP = getDocumentHtml_CDP;
 exports.toXMLString = toXMLString;
 exports.parseXML = parseXML;
-exports.addChildXML = addChildXML;
+exports.addChildNodeXML = addChildNodeXML;
 
 let { HeadlessChromeMgr } = require('./lib/headlesschromemgr');
 

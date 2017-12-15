@@ -1,6 +1,6 @@
 {
   "name": "crawlercore",
-  "version": "1.3.31",
+  "version": "1.3.32",
   "description": "crawler with nodejs",
   "main": "index.js",
   "scripts": {

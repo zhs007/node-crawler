@@ -3,7 +3,7 @@
 const ChromeLauncher = require('chrome-launcher');
 const chrome = require('chrome-remote-interface');
 const fs = require('fs');
-const { getVal_CDPCallFrame, logger } = require('../index');
+const { getVal_CDPCallFrame, log } = require('../index');
 
 var isend = false;
 
@@ -42,7 +42,7 @@ launchChrome().then(launcher => {
             protocol.on('Debugger.paused', async (params) => {
 
                 let obj = await getVal_CDPCallFrame('h', params.callFrames, Runtime);
-                logger.log('info', 'getVal_CDPCallFrame ' + JSON.stringify(obj));
+                log('info', 'getVal_CDPCallFrame ' + JSON.stringify(obj));
 
                 Debugger.resume();
                 protocol.close();
@@ -74,8 +74,8 @@ launchChrome().then(launcher => {
             protocol.on('Debugger.scriptParsed', (params) => {
                 // Debugger.pause();
 
-                logger.log('info', "got script ID", params.scriptId);
-                logger.log('info', "got script ID", params.url);
+                log('info', "got script ID", params.scriptId);
+                log('info', "got script ID", params.url);
 
                 if ('http://finance.sina.com.cn/sinafinancesdk/js/chart/h5t.js' == params.url) {
                     // const code = "var td5 = 'haha';";
@@ -102,7 +102,7 @@ launchChrome().then(launcher => {
                             };
 
                             Debugger.setBreakpoint({location: loc}, (err, params1) => {
-                                logger.log('info', "params1 : " + JSON.stringify(params1));
+                                log('info', "params1 : " + JSON.stringify(params1));
                             });
 
                             // console.log("script : " + JSON.stringify(msg));
@@ -156,6 +156,6 @@ launchChrome().then(launcher => {
     }).on('error', err => {
         throw Error('connect chrome err:' + err);
     }).on('Debugger.scriptParsed', (params) => {
-        logger.log('info', "got script ID", params.scriptId);
+        log('info', "got script ID", params.scriptId);
     });
 });

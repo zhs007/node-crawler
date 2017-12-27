@@ -1,6 +1,6 @@
 "use strict";
 
-let { CrawlerMgr, CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, getVal_CDPCallFrame, HeadlessChromeMgr } = require('../index');
+let { CrawlerMgr, CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, getVal_CDPCallFrame, HeadlessChromeMgr, logger } = require('../index');
 let util = require('util');
 
 const OPTIONS_TYPENAME = 'headlesschrome2';
@@ -21,7 +21,7 @@ async function func_analysis(crawler) {
     Debugger.paused(async (params) => {
 
         let obj = await getVal_CDPCallFrame('h', params.callFrames, Runtime);
-        console.log('headlesschrome2 ' + JSON.stringify(obj));
+        logger('info', 'headlesschrome2 ' + JSON.stringify(obj));
 
         Debugger.resume();
         crawler.client.close();
@@ -43,7 +43,7 @@ async function func_analysis(crawler) {
                 };
 
                 Debugger.setBreakpoint({location: loc}, (err, params1) => {
-                    console.log("params1 : " + JSON.stringify(params1));
+                    logger('info', "params1 : " + JSON.stringify(params1));
                 });
             });
         }
@@ -91,7 +91,7 @@ CrawlerMgr.singleton.regOptions(OPTIONS_TYPENAME, () => {
 });
 
 process.on('unhandledRejection', (reason, p) => {
-    console.log('Unhandled Rejection at:', p, 'reason:', reason);
+    logger('info', 'Unhandled Rejection at:', p, 'reason:', reason);
 });
 
 CrawlerMgr.singleton.processCrawlerNums = 8;

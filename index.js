@@ -57,7 +57,8 @@ let MysqlMgr = require('./lib/mysqlmgr');
 exports.RedisMgr = RedisMgr;
 exports.MysqlMgr = MysqlMgr;
 
-let { getVal_CDPCallFrame, getDocumentText_CDP, getDocumentHtml_CDP, toXMLString, parseXML, addChildNodeXML } = require('./lib/util');
+let { getVal_CDPCallFrame, getDocumentText_CDP, getDocumentHtml_CDP, toXMLString, parseXML, addChildNodeXML, logger,
+    initDailyRotateFileLog, setLogger } = require('./lib/util');
 
 exports.getVal_CDPCallFrame = getVal_CDPCallFrame;
 exports.getDocumentText_CDP = getDocumentText_CDP;
@@ -65,6 +66,9 @@ exports.getDocumentHtml_CDP = getDocumentHtml_CDP;
 exports.toXMLString = toXMLString;
 exports.parseXML = parseXML;
 exports.addChildNodeXML = addChildNodeXML;
+exports.logger = logger;
+exports.initDailyRotateFileLog = initDailyRotateFileLog;
+exports.setLogger = setLogger;
 
 let { HeadlessChromeMgr } = require('./lib/headlesschromemgr');
 

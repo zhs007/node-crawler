@@ -1,13 +1,13 @@
 "use strict";
 
-let { CrawlerMgr, CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, getVal_CDPCallFrame, HeadlessChromeMgr, toXMLString } = require('../index');
+let { CrawlerMgr, CRAWLER, DATAANALYSIS, STORAGE, CRAWLERCACHE, getVal_CDPCallFrame, HeadlessChromeMgr, toXMLString, logger } = require('../index');
 let util = require('util');
 
 const OPTIONS_TYPENAME = 'xml';
 
 // 分析数据
 async function func_analysis(crawler) {
-    console.log(toXMLString(crawler.da.root));
+    logger('info', toXMLString(crawler.da.root));
 
     return crawler;
 }
@@ -40,7 +40,7 @@ CrawlerMgr.singleton.regOptions(OPTIONS_TYPENAME, () => {
 });
 
 process.on('unhandledRejection', (reason, p) => {
-    console.log('Unhandled Rejection at:', p, 'reason:', reason);
+    logger('error', 'Unhandled Rejection at:', p, 'reason:', reason);
 });
 
 CrawlerMgr.singleton.processCrawlerNums = 8;

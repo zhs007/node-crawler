@@ -7,7 +7,7 @@ const OPTIONS_TYPENAME = 'xml';
 
 // 分析数据
 async function func_analysis(crawler) {
-    logger('info', toXMLString(crawler.da.root));
+    logger.log('info', toXMLString(crawler.da.root));
 
     return crawler;
 }
@@ -40,7 +40,7 @@ CrawlerMgr.singleton.regOptions(OPTIONS_TYPENAME, () => {
 });
 
 process.on('unhandledRejection', (reason, p) => {
-    logger('error', 'Unhandled Rejection at:', p, 'reason:', reason);
+    logger.log('error', 'Unhandled Rejection at:', p, 'reason:', reason);
 });
 
 CrawlerMgr.singleton.processCrawlerNums = 8;

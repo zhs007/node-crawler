@@ -14,8 +14,8 @@ require('./lib/storage_json');
 require('./lib/storage_sql');
 require('./lib/storage_mysql');
 
-require('./lib/crawlercache');
-require('./lib/crawlercache_redis');
+// require('./lib/crawlercache');
+// require('./lib/crawlercache_redis');
 
 require('./lib/crawleroptions_default');
 
@@ -28,6 +28,7 @@ let CrawlerMgr = require('./lib/crawlermgr');
 //      - force_encoding: default utf8
 //      - timeout: request timeout
 //      - async func_analysis(crawler)
+//          if func_analysis return undefined, cur crawler will reset(add to the lst's end).
 //      - async func_onfinish(crawler)
 //      - func_getcache()
 //      - func_setcache(cache)

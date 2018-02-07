@@ -30,6 +30,7 @@ let CrawlerMgr = require('./lib/crawlermgr');
 //      - async func_analysis(crawler)
 //          if func_analysis return undefined, cur crawler will reset(add to the lst's end).
 //      - async func_onfinish(crawler)
+//      - async func_onerror(crawler, err)
 //      - func_getcache()
 //      - func_setcache(cache)
 //      - crawler_type: CRAWLER.REQUEST ...
